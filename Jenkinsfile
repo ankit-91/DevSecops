@@ -1,6 +1,6 @@
 pipeline {
   agent any
-//pipeline in action
+//pipeline in actions
   stages {
       stage('Build Artifact') {
             steps {
