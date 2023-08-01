@@ -9,6 +9,8 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
+	<!-- next stage -->
+	
 	<groupId>com.devsecops</groupId>
 	<artifactId>numeric</artifactId>
 	<version>0.0.1</version>
