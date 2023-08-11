@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<!-- next stage to go -->
+	<!-- next stage progressing -->
 	
 	<groupId>com.devsecops</groupId>
 	<artifactId>numeric</artifactId>
