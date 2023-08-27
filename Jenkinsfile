@@ -55,7 +55,14 @@ pipeline {
         }
       }
     }
-  
+
+    stage('Sign the Docker image') {
+    steps {
+        
+        sh 'cosign sign --key cosign.key ankit136/numeric-app:""$GIT_COMMIT""'
+    }
+    }
+      
     stage('Kubernetes Deployment - DEV') {
       steps {
         withKubeConfig([credentialsId: 'kubeconfig']) {
