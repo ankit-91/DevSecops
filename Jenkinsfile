@@ -7,6 +7,8 @@ pipeline {
     imageName = "ankit136/numeric-app:${GIT_COMMIT}"
     applicationURL = "http://ec2-3-235-64-186.compute-1.amazonaws.com"
     applicationURI = "/increment/99"
+    COSIGN_PASSWORD=credentials('cosign-password')
+    COSIGN_PRIVATE_KEY=credentials('cosign-private-key')
   }
 //Pipeline Build in the action
   stages {
