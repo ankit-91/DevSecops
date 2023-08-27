@@ -1,5 +1,13 @@
 pipeline {
   agent any
+  environment {
+    deploymentName = "devsecops"
+    containerName = "devsecops-container"
+    serviceName = "devsecops-svc"
+    imageName = "ankit136/numeric-app:${GIT_COMMIT}"
+    applicationURL = "http://ec2-34-239-159-24.compute-1.amazonaws.com"
+    applicationURI = "/increment/99"
+  }
 //Pipeline Build in the action
   stages {
       stage('Build Artifact-Maven') {
