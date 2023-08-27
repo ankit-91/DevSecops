@@ -54,16 +54,12 @@ pipeline {
           sh 'printenv'
           sh 'sudo docker build -t ankit136/numeric-app:""$GIT_COMMIT"" .'
           sh 'docker push ankit136/numeric-app:""$GIT_COMMIT""'
+          sh 'cosign sign --key $COSIGN_PRIVATE_KEY ankit136/numeric-app:""$GIT_COMMIT"" -y'
         }
       }
     }
 
-    stage('Sign the Docker image') {
-    steps {
-        sh 'cosign version'
-        sh 'cosign sign --key $COSIGN_PRIVATE_KEY ankit136/numeric-app:""$GIT_COMMIT"" -y'
-    }
-    }
+    
       
     stage('Kubernetes Deployment - DEV') {
       steps {
