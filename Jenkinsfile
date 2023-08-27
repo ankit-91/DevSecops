@@ -5,7 +5,7 @@ pipeline {
     containerName = "devsecops-container"
     serviceName = "devsecops-svc"
     imageName = "ankit136/numeric-app:${GIT_COMMIT}"
-    applicationURL = "http://ec2-3-235-64-186.compute-1.amazonaws.com"
+    applicationURL = "http://ec2-3-236-105-192.compute-1.amazonaws.com"
     applicationURI = "/increment/99"
     COSIGN_PASSWORD=credentials('cosign-password')
     COSIGN_PRIVATE_KEY=credentials('cosign-private-key')
