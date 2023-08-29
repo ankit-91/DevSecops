@@ -10,7 +10,7 @@ pipeline {
     COSIGN_PASSWORD=credentials('cosign-password')
     COSIGN_PRIVATE_KEY=credentials('cosign-private-key')
   } */
-//Pipeline Build in the action
+//Pipeline Building in the action
   stages {
       stage('Build Artifact-Maven') {
             steps {
