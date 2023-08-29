@@ -1,6 +1,6 @@
 pipeline {
   agent any
-  environment {
+ /* environment {
     deploymentName = "devsecops"
     containerName = "devsecops-container"
     serviceName = "devsecops-svc"
@@ -9,7 +9,7 @@ pipeline {
     applicationURI = "/increment/99"
     COSIGN_PASSWORD=credentials('cosign-password')
     COSIGN_PRIVATE_KEY=credentials('cosign-private-key')
-  }
+  */}
 //Pipeline Building in the action
   stages {
       stage('Build Artifact-Maven') {
