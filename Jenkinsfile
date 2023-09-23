@@ -32,7 +32,7 @@ pipeline {
     }
       stage('Sonarqube SAST') {
             steps {
-              withSonarQubeEnv('SonarQube - SAST') {
+              
              sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://ec2-44-204-66-0.compute-1.amazonaws.com:9000 -Dsonar.login=f8edde35e00ce03b8e6d6a664ae1fe9645d43f14"
             }
            // timeout(time: 2, unit: 'MINUTES') {
@@ -40,7 +40,7 @@ pipeline {
                 //waitForQualityGate abortPipeline: true
              // }  
          // }
-            }
+            
       }
 
 /*      stage('Vulnerability Scan - Docker') {
