@@ -30,20 +30,20 @@ pipeline {
         }
       }
     }
-   /*  // stage('Sonarqube SAST') {
-       //     steps {
-         //     withSonarQubeEnv('SonarQube') {
-           //   sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://ec2-3-86-24-84.compute-1.amazonaws.com:9000 -Dsonar.login=0b30ed6d8d32300d09d54dbdc977d319ebf1517e"
-            //}
-            //timeout(time: 2, unit: 'MINUTES') {
+      stage('Sonarqube SAST') {
+            steps {
+              withSonarQubeEnv('SonarQube - SAST') {
+             sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://ec2-44-204-66-0.compute-1.amazonaws.com:9000 -Dsonar.login=f8edde35e00ce03b8e6d6a664ae1fe9645d43f14"
+            }
+           // timeout(time: 2, unit: 'MINUTES') {
               //script {
                 //waitForQualityGate abortPipeline: true
-              //}  
-            //}
-            //}
-      //}
+             // }  
+         // }
+            }
+      }
 
-      stage('Vulnerability Scan - Docker') {
+/*      stage('Vulnerability Scan - Docker') {
       steps {
           sh "bash trivy-docker-image-scan.sh"
       }
