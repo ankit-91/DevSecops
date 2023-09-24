@@ -46,12 +46,12 @@ pipeline {
             
    
 
-/*      stage('Vulnerability Scan - Docker') {
+    stage('Vulnerability Scan of base Image of Application Image') {
       steps {
           sh "bash trivy-docker-image-scan.sh"
       }
       }
- */   
+   
       stage('Docker Image Build') {
       steps {
          sh 'sudo docker build -t ankit136/numeric-app:""$GIT_COMMIT"" .'
