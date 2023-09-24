@@ -81,6 +81,7 @@ pipeline {
         withKubeConfig([credentialsId: 'kubeconfig']) {
           
           sh "kubectl apply -f k8s_deployment_service.yaml"
+          echo "The value of the variable is ${GIT_COMMIT}"
         }
       }
     }
