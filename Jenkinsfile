@@ -54,11 +54,8 @@ pipeline {
  */   
       stage('Docker Image Build') {
       steps {
-        withDockerRegistry([credentialsId: "docker", url: ""]) {
-          sh 'printenv'
-          sh 'sudo docker build -t ankit136/numeric-app:""$GIT_COMMIT"" .'
+         sh 'sudo docker build -t ankit136/numeric-app:""$GIT_COMMIT"" .'
         }
-      }
     }
 
  /*   stage('Docker App's Image push to Dockerhub and App's Image-signing') {
