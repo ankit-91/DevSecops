@@ -76,7 +76,7 @@ pipeline {
       }
     }
       
-      stage('Kubernetes Deployment - DEV') {
+      stage('Kubernetes Deployment') {
       steps {
         withKubeConfig([credentialsId: 'kubeconfig']) {
           sh "sed -i 's#replace#ankit136/numeric-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
