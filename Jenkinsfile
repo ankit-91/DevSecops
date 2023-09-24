@@ -58,7 +58,7 @@ pipeline {
         }
     }
 
-    stage('Docker App's Image push to Dockerhub and App's Image-signing') {
+    stage('Docker App Image push to Dockerhub and App Image-signing') {
       steps {
           withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
            sh 'docker push ankit136/numeric-app:""$GIT_COMMIT""'
