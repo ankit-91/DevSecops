@@ -69,8 +69,8 @@ pipeline {
 
     stage('App Image Signing in DockerHub') {
       steps {
-        sh 'cosign sign --key $COSIGN_PRIVATE_KEY ankit136/numeric-app:""$GIT_COMMIT"" -y'
-        
+        //sh 'cosign sign --key $COSIGN_PRIVATE_KEY ankit136/numeric-app:""$GIT_COMMIT"" -y'
+          sh 'cosign sign --key $COSIGN_PRIVATE_KEY **** ankit136/numeric-app:""$GIT_COMMIT"" -r docker.io -y'
       }
     }
       
