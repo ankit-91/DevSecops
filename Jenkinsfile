@@ -70,7 +70,9 @@ pipeline {
     stage('App Image Signing in DockerHub') {
       steps {
          // sh 'cosign sign --key $COSIGN_PRIVATE_KEY ankit136/numeric-app:""$GIT_COMMIT"" -y'
+           withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
          sh 'cosign sign --key $COSIGN_PRIVATE_KEY "ankit136/numeric-app:${GIT_COMMIT}" -y'
+           }
       }
     }
       
