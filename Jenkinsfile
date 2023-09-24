@@ -58,15 +58,16 @@ pipeline {
         }
     }
 
- /*   stage('Docker App's Image push to Dockerhub and App's Image-signing') {
+    stage('Docker App's Image push to Dockerhub and App's Image-signing') {
       steps {
-         sh 'docker push ankit136/numeric-app:""$GIT_COMMIT""'
-         sh 'cosign sign --key $COSIGN_PRIVATE_KEY ankit136/numeric-app:""$GIT_COMMIT"" -y'
+          withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
+           sh 'docker push ankit136/numeric-app:""$GIT_COMMIT""'
+         //sh 'cosign sign --key $COSIGN_PRIVATE_KEY ankit136/numeric-app:""$GIT_COMMIT"" -y'
       }
     }  
-        
+    } 
       
-    stage('Kubernetes Deployment - DEV') {
+ /*   stage('Kubernetes Deployment - DEV') {
       steps {
         withKubeConfig([credentialsId: 'kubeconfig']) {
           sh "sed -i 's#replace#ankit136/numeric-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
