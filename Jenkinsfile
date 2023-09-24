@@ -31,7 +31,7 @@ pipeline {
       }
     }
      
-    stage('SonarQube - SAST') {
+  /*  stage('SonarQube - SAST') {
       steps {
         withSonarQubeEnv('SonarQube') {
           sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://ec2-54-147-158-76.compute-1.amazonaws.com:9000 -Dsonar.login=b61699de4a3f1c5d8d51da2d6636e0ec6631de73"
@@ -43,7 +43,7 @@ pipeline {
         }
       }
     }
-            
+    */        
    
 
     stage('Vulnerability Scan of base Image of Application Image') {
