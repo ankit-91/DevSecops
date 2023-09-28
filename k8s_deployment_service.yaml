@@ -25,6 +25,10 @@ metadata:
   labels:
     app: devsecops
   name: devsecops-svc
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/metrics"
+    prometheus.io/port: "31935"
 spec:
   ports:
   - port: 8080
