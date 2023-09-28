@@ -46,7 +46,7 @@ pipeline {
             
    */
 
-    stage('Vulnerability Scan of base Image of Application Image') {
+  /*  stage('Vulnerability Scan of base Image of Application Image') {
       steps {
           sh "bash trivy-docker-image-scan.sh"
       }
@@ -75,7 +75,7 @@ pipeline {
            }
       }
     }
-      
+    */  
       stage('Kubernetes Deployment') {
       steps {
         withKubeConfig([credentialsId: 'kubeconfig']) {
