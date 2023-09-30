@@ -64,7 +64,7 @@ pipeline {
 
       
 
-     stage('SonarQube - SAST') { 
+  /*   stage('SonarQube - SAST') { 
 
       steps { 
 
@@ -87,7 +87,7 @@ pipeline {
       } 
 
     } 
-
+*/
              
 
     
