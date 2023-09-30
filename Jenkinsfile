@@ -92,9 +92,8 @@ pipeline {
           sh 'bash zap.sh'
         }
       }
-    }
-    
-  }
+        
+  
 
    stage('K8S Deployment - PROD') {
       steps {
