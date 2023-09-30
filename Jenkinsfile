@@ -172,7 +172,7 @@ pipeline {
 
     } 
 
-  
+   
 
     stage('OWASP ZAP - DAST') { 
 
@@ -184,7 +184,14 @@ pipeline {
 
         } 
 
-     stage('K8S Deployment - PROD') {
+	
+
+      } 
+
+    } 
+   
+    
+    stage('K8S Deployment - PROD') {
       steps {
         parallel(
           "Deployment": {
@@ -201,12 +208,7 @@ pipeline {
         )
       }
     }
-
-
-      } 
-
-    } 
-
+	
      
 
   } 
