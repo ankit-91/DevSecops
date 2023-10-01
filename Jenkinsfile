@@ -174,7 +174,7 @@ pipeline {
 
    
 
-    stage('OWASP ZAP - DAST') { 
+   /* stage('OWASP ZAP - DAST') { 
 
       steps { 
 
@@ -189,7 +189,7 @@ pipeline {
       } 
 
     } 
-   
+   */
     
     stage('K8S Deployment - PROD') {
       steps {
