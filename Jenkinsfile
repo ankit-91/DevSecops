@@ -2,7 +2,7 @@ pipeline {
 
   agent any 
 
-    environment { 
+  /*  environment { 
 
       deploymentName = "devsecops" 
 
@@ -21,7 +21,7 @@ pipeline {
       COSIGN_PRIVATE_KEY=credentials('cosign-private-key') 
 
   }  
-
+*/
 //Pipeline Building in the action 
 
   stages { 
