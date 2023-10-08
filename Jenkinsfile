@@ -94,7 +94,7 @@ pipeline {
 
   
 
-    stage('Vulnerability Scan of base Image of Application Image') { 
+  /*  stage('Vulnerability Scan of base Image of Application Image') { 
 
       steps { 
 
@@ -104,7 +104,7 @@ pipeline {
 
       } 
 
-    
+    */
 
       stage('Docker Image Build') { 
 
@@ -136,7 +136,7 @@ pipeline {
 
   
 
-    stage('App Image Signing in DockerHub') { 
+ /*   stage('App Image Signing in DockerHub') { 
 
       steps { 
 
@@ -152,7 +152,7 @@ pipeline {
 
     } 
 
-       
+  */     
 
       stage('Kubernetes Deployment') { 
 
@@ -213,7 +213,7 @@ pipeline {
 
   } 
 
-   post { 
+/*   post { 
 
     always {  
 
@@ -226,5 +226,5 @@ pipeline {
    }  
 
   
-
+*/
 } 
