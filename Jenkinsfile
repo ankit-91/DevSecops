@@ -2,7 +2,7 @@ pipeline {
 
   agent any 
 
-  /*  environment { 
+    environment { 
 
       deploymentName = "devsecops" 
 
@@ -12,16 +12,16 @@ pipeline {
 
       imageName = "ankit136/numeric-app:${GIT_COMMIT}" 
 
-      applicationURL = "http://ec2-44-201-178-132.compute-1.amazonaws.com" 
+      applicationURL = "http://ec2-54-209-59-29.compute-1.amazonaws.com" 
 
       applicationURI = "/increment/99" 
 
-      COSIGN_PASSWORD=credentials('cosign-password') 
+#      COSIGN_PASSWORD=credentials('cosign-password') 
 
-      COSIGN_PRIVATE_KEY=credentials('cosign-private-key') 
+ #     COSIGN_PRIVATE_KEY=credentials('cosign-private-key') 
 
   }  
-*/
+
 //Pipeline Building in the action 
 
   stages { 
@@ -170,7 +170,7 @@ pipeline {
     }	
 
 	  
-      stage('Kubernetes Deployment') { 
+    /*  stage('Kubernetes Deployment') { 
 
       steps { 
 
@@ -187,8 +187,23 @@ pipeline {
       } 
 
     } 
-
-   
+*/
+   stage('K8S Deployment - DEV') {
+      steps {
+        parallel(
+          "Deployment": {
+            withKubeConfig([credentialsId: 'kubeconfig']) {
+              sh "bash k8s-deployment.sh"
+            }
+          },
+          "Rollout Status": {
+            withKubeConfig([credentialsId: 'kubeconfig']) {
+              sh "bash k8s-deployment-rollout-status.sh"
+            }
+          }
+        )
+      }
+    }
 
    /* stage('OWASP ZAP - DAST') { 
 
