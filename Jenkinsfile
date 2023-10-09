@@ -12,7 +12,7 @@ pipeline {
 
       imageName = "ankit136/numeric-app:${GIT_COMMIT}" 
 
-      applicationURL = "http://ec2-54-209-59-29.compute-1.amazonaws.com" 
+      applicationURL = "http://ec2-18-207-188-19.compute-1.amazonaws.com" 
 
       applicationURI = "/increment/99" 
 
