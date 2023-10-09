@@ -212,6 +212,24 @@ pipeline {
       }
     }
 
+stage('Integration Tests - DEV') {
+      steps {
+        script {
+          try {
+            withKubeConfig([credentialsId: 'kubeconfig']) {
+              sh "bash integration-test.sh"
+            }
+          } catch (e) {
+            withKubeConfig([credentialsId: 'kubeconfig']) {
+              sh "kubectl -n default rollout undo deploy ${deploymentName}"
+            }
+            throw e
+          }
+        }
+      }
+    }  
+
+
    /* stage('OWASP ZAP - DAST') { 
 
       steps { 
@@ -229,7 +247,7 @@ pipeline {
     } 
    */
     
- /*   stage('K8S Deployment - PROD') {
+    stage('K8S Deployment - PROD') {
       steps {
         parallel(
           "Deployment": {
@@ -246,24 +264,8 @@ pipeline {
         )
       }
     }
-*/	
-   stage('Integration Tests - DEV') {
-      steps {
-        script {
-          try {
-            withKubeConfig([credentialsId: 'kubeconfig']) {
-              sh "bash integration-test.sh"
-            }
-          } catch (e) {
-            withKubeConfig([credentialsId: 'kubeconfig']) {
-              sh "kubectl -n default rollout undo deploy ${deploymentName}"
-            }
-            throw e
-          }
-        }
-      }
-    }  
-
+	
+   
   } 
 
 /*   post { 
