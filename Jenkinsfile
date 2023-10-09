@@ -106,6 +106,15 @@ pipeline {
 
     */
 
+      stage('OPA') {
+
+	steps {
+	  sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-docker-security.rego Dockerfile'
+		
+	}	
+
+   }
+
       stage('Docker Image Build') { 
 
       steps { 
@@ -134,14 +143,7 @@ pipeline {
 
     }  
 
-   stage('OPA') {
-
-	steps {
-	  sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-docker-security.rego Dockerfile'
-		
-	}	
-
-   }
+   
      
 
  /*   stage('App Image Signing in DockerHub') { 
