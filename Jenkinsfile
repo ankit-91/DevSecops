@@ -106,7 +106,7 @@ pipeline {
 
     */
 
-      stage('OPA') {
+      stage('OPA-Docker') {
 
 	steps {
 	  sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-docker-security.rego Dockerfile'
@@ -163,7 +163,13 @@ pipeline {
     } 
 
   */     
+     stage('Vulnerability Scan - Kubernetes') {
+      steps {
+        sh 'docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-k8s-security.rego k8s_deployment_service.yaml'
+      }
+    }	
 
+	  
       stage('Kubernetes Deployment') { 
 
       steps { 
