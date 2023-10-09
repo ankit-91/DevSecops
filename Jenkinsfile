@@ -16,10 +16,10 @@ pipeline {
 
       applicationURI = "/increment/99" 
 
-#      COSIGN_PASSWORD=credentials('cosign-password') 
+ /*     COSIGN_PASSWORD=credentials('cosign-password') 
 
- #     COSIGN_PRIVATE_KEY=credentials('cosign-private-key') 
-
+      COSIGN_PRIVATE_KEY=credentials('cosign-private-key') 
+*/
   }  
 
 //Pipeline Building in the action 
